@@ -24,6 +24,9 @@ class Etudiant
     #[ORM\Column(length: 100)]
     private ?string $adresse = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $cne = null;
+
     #[ORM\OneToMany(mappedBy: 'etudiant', targetEntity: Note::class)]
     private Collection $notes;
 
@@ -69,6 +72,18 @@ class Etudiant
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getCne(): ?string
+    {
+        return $this->cne;
+    }
+
+    public function setCne(string $cne): self
+    {
+        $this->cne = $cne;
 
         return $this;
     }

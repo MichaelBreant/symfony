@@ -49,8 +49,11 @@ final class ModuleFactory extends ModelFactory
         return [
             'enseignant' => null, // TODO add App\Entity\enseignant type manually
             'filiere' => null, // TODO add App\Entity\filiere type manually
-            'nom' => self::faker()->text(50),
-            'semestre' => null, // TODO add App\Entity\semestre type manually
+            'nom' => self::faker()->realtext(30),
+            'filiere' => FiliereFactory::randomOrCreate(),
+            'enseignant' => EnseignantFactory::randomOrCreate(),
+            'semestre' => SemestreFactory::randomOrCreate()
+           // 'semestre' => null, // TODO add App\Entity\semestre type manually
         ];
     }
 
